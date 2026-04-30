@@ -7,7 +7,7 @@
  * Redirects to /dashboard on successful login.
  *
  * Test credentials:
- *   Email:    priya.sharma@swais.edu
+ *   Email:    sandipani.acharya@swais.edu
  *   Password: password123
  *
  * TODO: Replace with real API authentication when FastAPI backend is ready.
@@ -83,7 +83,7 @@ export default function LoginForm() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="priya.sharma@swais.edu"
+              placeholder="sandipani.acharya@swais.edu"
               required
               className="w-full px-4 py-2.5 border border-border rounded-lg text-sm text-text placeholder:text-text-lighter focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200"
             />
@@ -159,7 +159,7 @@ export default function LoginForm() {
             Demo Credentials
           </p>
           <p className="text-xs text-text-light">
-            Email: <span className="font-mono">priya.sharma@swais.edu</span>
+            Email: <span className="font-mono">sandipani.acharya@swais.edu</span>
           </p>
           <p className="text-xs text-text-light">
             Password: <span className="font-mono">password123</span>
