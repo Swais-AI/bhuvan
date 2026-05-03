@@ -24,9 +24,9 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-primary text-white hover:bg-primary-dark focus:ring-primary shadow-sm hover:shadow-md active:scale-[0.98]",
+      "ai-gradient text-white hover:opacity-90 focus:ring-indigo-400 shadow-sm hover:shadow-lg active:scale-[0.98]",
     outline:
-      "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary active:scale-[0.98]",
+      "border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-400 active:scale-[0.98]",
     danger:
       "bg-danger text-white hover:bg-red-700 focus:ring-danger shadow-sm hover:shadow-md active:scale-[0.98]",
     ghost:
