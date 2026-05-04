@@ -1,0 +1,41 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/swais-website
+
+            git pull origin main
+
+            # FRONTEND
+            cd frontend || cd app
+            npm install
+            npm run build
+            pm2 restart swais-frontend || pm2 start "npm run start" --name swais-frontend
+
+            # BACKEND
+            cd ../backend
+            source venv/bin/activate
+            pip install -r requirements.txt
+
+            # DO NOT RUN migrations yet (no DB)
+            # alembic upgrade head
+
+            pm2 restart swais-backend || pm2 start "uvicorn app.main:app --host 0.0.0.0 --port 8000" --name swais-backend
